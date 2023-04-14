@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.legends.jinx.dao.DrugInfoDao">
+
+    <select id="getDrugList" parameterType="map" resultType="com.legends.jinx.dto.DrugInfo">
+        SELECT DRUG_NAME AS drugName, GOODS_ID AS goodsId, HOS_NAME AS hosName, HOS_ID AS hosId
+        FROM DRUG_HOS_GOODS
+        <where>
+            <if test="hosId != ''">
+                HOS_ID=#{hosId}
+            </if>
+            <if test="goodsId != ''">
+                GOODS_ID = #{goodsId}
+            </if>
+        </where>
+    </select>
+
+    <select id="getDrugListFap" parameterType="map" resultType="com.legends.jinx.dto.DrugInfo">
+        SELECT UNITNAME AS drugName, UNITCODE AS goodsId, HOSNAME AS hosName, HOSNUM AS hosId
+        FROM FAP_HOS_COST_CENTER_MAP
+        <where>
+            AND IS_DELETE = '1'
+            <if test='hosId != null and hosId != "" '>
+                AND HOSNUM = #{hosId}
+            </if>
+            <if test='goodsId != null and goodsId != "" '>
+                AND UNITCODE = #{goodsId}
+            </if>
+        </where>
+    </select>
+
+</mapper>

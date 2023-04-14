@@ -1,0 +1,25 @@
+# 开发环境:  dev
+server:
+  port: 8083
+spring:
+  config:
+    activate:
+      on-profile: dev
+  application:
+    name: Twist-Dev
+    #    数据库配置
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@10.88.5.11:1521/ORCL
+    username: PUR_DATACT_HC1
+    password: yjc_123456
+
+
+
+#springdoc:
+#  api-docs:
+#    path: dev-api-doc
+
+
+
+

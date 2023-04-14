@@ -1,0 +1,31 @@
+# 正式环境：prod
+server:
+  port: 8086
+spring:
+  config:
+    activate:
+      on-profile: prod
+  application:
+    name: Twist-Prod
+
+
+  #    数据库配置
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@//10.153.100.233:1521/fap
+    username: fapusr
+    password: FapUsr_2022
+
+
+#springdoc:
+#  api-docs:
+#    path: prod-api-doc
+#
+#  swagger-ui:
+#mybatis:
+#  mapper-locations: classpath:mapper/**.xml
+#
+#logging:
+#  level:
+#    com.legends.twist.dao: DEBUG
+#    config-url: prod-swagger

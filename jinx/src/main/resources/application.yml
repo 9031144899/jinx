@@ -1,0 +1,20 @@
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    persist-authorization: true
+
+
+mybatis:
+  mapper-locations: classpath:mapper/**.xml
+
+logging:
+  level:
+    com.legends.twist.dao: DEBUG
